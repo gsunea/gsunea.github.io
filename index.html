@@ -1,23 +1,24 @@
 ---
 layout: default
 ---
-
-<h1>Blog Posts</h1>
-
-<!-- Category Filter Dropdown -->
-<label for="category-filter">Filter by category:</label>
-<select id="category-filter" onchange="filterPosts()">
-  <option value="all">All</option>
-  {% assign all_categories = "" | split: "" %}
-  {% for post in site.posts %}
+<article>
+  
+  <h1>Blog Posts</h1>
+  
+  <!-- Category Filter Dropdown -->
+  <label for="category-filter">Filter by category:</label>
+  <select id="category-filter" onchange="filterPosts()">
+    <option value="all">All</option>
+    {% assign all_categories = "" | split: "" %}
+    {% for post in site.posts %}
     {% for category in post.categories %}
-      {% assign all_categories = all_categories | push: category %}
+    {% assign all_categories = all_categories | push: category %}
     {% endfor %}
-  {% endfor %}
-  {% assign unique_categories = all_categories | uniq | sort %}
-  {% for category in unique_categories %}
+    {% endfor %}
+    {% assign unique_categories = all_categories | uniq | sort %}
+    {% for category in unique_categories %}
     <option value="{{ category | downcase | replace: '_', ' ' }}">{{ category | replace: '_', ' ' }}</option>
-  {% endfor %}
+    {% endfor %}
 </select>
 
 <ul id="posts-list">
@@ -33,11 +34,11 @@ layout: default
   function filterPosts() {
     var selectedCategory = document.getElementById("category-filter").value.replace(" ", "_");
     var posts = document.getElementsByClassName("post-item");
-
+    
     for (var i = 0; i < posts.length; i++) {
       var post = posts[i];
       var categories = post.getAttribute("data-categories").split(",");
-
+      
       if (selectedCategory === "all" || categories.includes(selectedCategory)) {
         post.style.display = "";
       } else {
@@ -46,3 +47,4 @@ layout: default
     }
   }
 </script>
+</article>
