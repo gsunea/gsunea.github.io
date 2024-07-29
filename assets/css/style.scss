@@ -32,12 +32,41 @@ body.dark-mode .post-item small {
 
 body.dark-mode header,
 body.dark-mode footer,
-body.dark-mode .content {
+body.dark-mode .content,
+body.dark-mode .blog-posts-header,
+body.dark-mode .post-content {
   color: #ffffff;
 }
 
-body.dark-mode .blog-posts-header {
-  color: #ffffff;
+/* Bold text in dark mode */
+body.dark-mode strong,
+body.dark-mode b {
+  color: #ffffff; /* Adjust if needed */
+}
+
+/* Inline code in dark mode */
+body.dark-mode code {
+  background-color: #333; /* Dark background for inline code */
+  color: #ffcc00; /* Adjust color for inline code */
+  padding: 2px 4px;
+  border-radius: 4px;
+}
+
+/* Code blocks in dark mode */
+body.dark-mode pre {
+  background-color: #1e1e1e; /* Dark background for code blocks */
+  color: #dcdcdc; /* Light color for code text */
+  padding: 10px;
+  border-radius: 4px;
+  overflow-x: auto;
+}
+
+/* Additional styling for code blocks */
+body.dark-mode pre code {
+  background: none;
+  color: inherit;
+  padding: 0;
+  border-radius: 0;
 }
 
 /* Additional styling */
