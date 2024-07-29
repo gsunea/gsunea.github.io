@@ -15,6 +15,15 @@
       color: #bb86fc;
     }
 
+    body.dark-mode h1,
+    body.dark-mode h2,
+    body.dark-mode h3,
+    body.dark-mode h4,
+    body.dark-mode h5,
+    body.dark-mode h6 {
+      color: #ffffff;
+    }
+
     body.dark-mode .post-item a {
       color: #bb86fc;
     }
@@ -33,16 +42,66 @@
       cursor: pointer;
       font-size: 24px;
     }
+
+    /* Toggle switch */
+    .toggle-container {
+      position: fixed;
+      top: 10px;
+      right: 10px;
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+    }
+
+    .toggle-container .toggle-label {
+      margin: 0 5px;
+      font-size: 24px;
+    }
+
+    .toggle-container .toggle-switch {
+      width: 50px;
+      height: 25px;
+      background-color: #ccc;
+      border-radius: 25px;
+      position: relative;
+      transition: background-color 0.3s;
+    }
+
+    .toggle-container .toggle-switch::before {
+      content: '';
+      position: absolute;
+      top: 2px;
+      left: 2px;
+      width: 21px;
+      height: 21px;
+      background-color: #fff;
+      border-radius: 50%;
+      transition: transform 0.3s;
+    }
+
+    .toggle-container .toggle-switch.dark::before {
+      transform: translateX(25px);
+    }
+
+    .toggle-container .toggle-switch.dark {
+      background-color: #333;
+    }
   </style>
 </head>
 <body>
-  <button id="dark-mode-toggle" onclick="toggleDarkMode()">🌙</button>
+  <div class="toggle-container" onclick="toggleDarkMode()">
+    <span class="toggle-label">🌞</span>
+    <div id="dark-mode-toggle" class="toggle-switch"></div>
+    <span class="toggle-label">🌙</span>
+  </div>
   {{ content }}
 
   <script>
     function toggleDarkMode() {
       var body = document.body;
+      var toggle = document.getElementById('dark-mode-toggle');
       body.classList.toggle('dark-mode');
+      toggle.classList.toggle('dark');
 
       // Save the mode in localStorage
       if (body.classList.contains('dark-mode')) {
@@ -57,6 +116,7 @@
       var savedTheme = localStorage.getItem('theme');
       if (savedTheme === 'dark') {
         document.body.classList.add('dark-mode');
+        document.getElementById('dark-mode-toggle').classList.add('dark');
       }
     }
   </script>

@@ -3,21 +3,80 @@
 
 @import "jekyll-theme-minimal";
 
+/* Base styles */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
 /* Dark mode styles */
 body.dark-mode {
-    background-color: #121212;
-    color: #ffffff;
-  }
-  
-  body.dark-mode a {
-    color: #bb86fc;
-  }
-  
-  body.dark-mode .post-item a {
-    color: #bb86fc;
-  }
-  
-  body.dark-mode .post-item small {
-    color: #cccccc;
-  }
-  
+  background-color: #121212;
+  color: #ffffff;
+}
+
+body.dark-mode a {
+  color: #bb86fc;
+}
+
+body.dark-mode h1,
+body.dark-mode h2,
+body.dark-mode h3,
+body.dark-mode h4,
+body.dark-mode h5,
+body.dark-mode h6 {
+  color: #ffffff;
+}
+
+body.dark-mode .post-item a {
+  color: #bb86fc;
+}
+
+body.dark-mode .post-item small {
+  color: #cccccc;
+}
+
+/* Additional styling */
+.toggle-container {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.toggle-container .toggle-label {
+  margin: 0 5px;
+  font-size: 24px;
+}
+
+.toggle-container .toggle-switch {
+  width: 50px;
+  height: 25px;
+  background-color: #ccc;
+  border-radius: 25px;
+  position: relative;
+  transition: background-color 0.3s;
+}
+
+.toggle-container .toggle-switch::before {
+  content: '';
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 21px;
+  height: 21px;
+  background-color: #fff;
+  border-radius: 50%;
+  transition: transform 0.3s;
+}
+
+.toggle-container .toggle-switch.dark::before {
+  transform: translateX(25px);
+}
+
+.toggle-container .toggle-switch.dark {
+  background-color: #333;
+}
