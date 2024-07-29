@@ -112,3 +112,151 @@ body.dark-mode pre code {
 .toggle-container .toggle-switch.dark::before {
   transform: translateX(20px);
 }
+
+/* Responsive layout */
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 10px;
+}
+
+/* Responsive header and footer */
+header, footer {
+  padding: 10px 0;
+  text-align: center;
+}
+
+header {
+  background-color: #f1f1f1;
+}
+
+footer {
+  background-color: #f1f1f1;
+  color: #666;
+}
+
+/* Responsive typography adjustments */
+h1 {
+  font-size: 2em;
+}
+
+h2 {
+  font-size: 1.75em;
+}
+
+h3 {
+  font-size: 1.5em;
+}
+
+h4 {
+  font-size: 1.25em;
+}
+
+h5 {
+  font-size: 1em;
+}
+
+h6 {
+  font-size: 0.875em;
+}
+
+/* Dark mode responsive styles */
+body.dark-mode header,
+body.dark-mode footer {
+  background-color: #333;
+  color: #ddd;
+}
+
+/* Media queries for responsiveness */
+@media (max-width: 768px) {
+  body {
+    font-size: 14px; /* Adjust font size for tablets */
+  }
+
+  h1 {
+    font-size: 1.5em;
+  }
+
+  h2 {
+    font-size: 1.5em;
+  }
+
+  h3 {
+    font-size: 1.25em;
+  }
+
+  h4 {
+    font-size: 1em;
+  }
+
+  .toggle-container {
+    font-size: 16px;
+    top: 5px;
+    right: 5px;
+  }
+
+  .toggle-container .toggle-switch {
+    width: 30px;
+    height: 15px;
+  }
+
+  .toggle-container .toggle-switch::before {
+    width: 13px;
+    height: 13px;
+  }
+
+  header, footer {
+    padding: 8px 0;
+  }
+
+  .container {
+    padding: 0 5px;
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+    font-size: 12px; /* Adjust font size for small devices */
+  }
+
+  h1 {
+    font-size: 1.25em;
+  }
+
+  h2 {
+    font-size: 1.25em;
+  }
+
+  h3 {
+    font-size: 1em;
+  }
+
+  h4 {
+    font-size: 0.875em;
+  }
+
+  .toggle-container {
+    font-size: 14px;
+    top: 2px;
+    right: 2px;
+  }
+
+  .toggle-container .toggle-switch {
+    width: 25px;
+    height: 12px;
+  }
+
+  .toggle-container .toggle-switch::before {
+    width: 10px;
+    height: 10px;
+  }
+
+  header, footer {
+    padding: 6px 0;
+  }
+
+  .container {
+    padding: 0;
+  }
+}
