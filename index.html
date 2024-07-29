@@ -3,11 +3,40 @@ layout: default
 ---
 
 <h1>Blog Posts</h1>
-<ul>
+
+<!-- Category Filter Dropdown -->
+<label for="category-filter">Filter by category:</label>
+<select id="category-filter" onchange="filterPosts()">
+  <option value="all">All</option>
+  {% assign categories = site.posts | map: 'categories' | join: ',' | split: ',' | uniq | sort %}
+  {% for category in categories %}
+    <option value="{{ category | downcase }}">{{ category }}</option>
+  {% endfor %}
+</select>
+
+<ul id="posts-list">
   {% for post in site.posts %}
-    <li>
+    <li class="post-item" data-category="{{ post.categories | join: ' ' | downcase }}">
       <a href="{{ post.url }}">{{ post.title }}</a>
       <small>{{ post.date | date: "%B %d, %Y" }}</small>
     </li>
   {% endfor %}
 </ul>
+
+<script>
+  function filterPosts() {
+    var selectedCategory = document.getElementById("category-filter").value;
+    var posts = document.getElementsByClassName("post-item");
+    
+    for (var i = 0; i < posts.length; i++) {
+      var post = posts[i];
+      var categories = post.getAttribute("data-category").split(" ");
+
+      if (selectedCategory === "all" || categories.includes(selectedCategory)) {
+        post.style.display = "";
+      } else {
+        post.style.display = "none";
+      }
+    }
+  }
+</script>
